@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MainPage.css';
 
@@ -6,6 +6,13 @@ const MainPage = () => {
   const [view, setView] = useState('main');
   const [fileName, setFileName] = useState('');
   const navigate = useNavigate();
+
+  // This hook will update the background image when the component mounts
+  useEffect(() => {
+    // Dynamically set background image (this can be changed to any image URL)
+    const backgroundImageUrl = './img/bg.jpeg'; // Put the path to the image here
+    document.querySelector('.homepage-main').style.backgroundImage = `url(${backgroundImageUrl})`;
+  }, []);
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -24,20 +31,7 @@ const MainPage = () => {
   };
 
   return (
-    <div className="homepage">
-      <header className="homepage-header">
-        <nav className="navbar">
-          <ul className="navbar-menu">
-            <li>Product</li>
-            <li>Solutions</li>
-            <li>Resources</li>
-            <li>Open Source</li>
-            <li>Enterprise</li>
-            <li>Pricing</li>
-          </ul>
-        </nav>
-      </header>
-
+    <div>
       <main className="homepage-main">
         {view === 'main' && (
           <>
@@ -45,16 +39,23 @@ const MainPage = () => {
             <p className="subheadline">Upload Your Data</p>
 
             <div className="cta">
-              <label className="btn btn-primary">
+              <label
+                className="btn btn-secondary"
+                data-tooltip="Upload CSV, Excel, or JSON files for text/numerical data"
+              >
                 Text / Numerical
                 <input
                   type="file"
-                  accept=".csv, .xlsx"
+                  accept=".csv, .xlsx, .json"
                   style={{ display: 'none' }}
                   onChange={handleFileUpload}
                 />
               </label>
-              <button className="btn btn-secondary" onClick={handleUnderConstructionClick}>
+              <button
+                className="btn btn-secondary"
+                data-tooltip="Upload supported image or video formats"
+                onClick={handleUnderConstructionClick}
+              >
                 Images / Videos
               </button>
             </div>
