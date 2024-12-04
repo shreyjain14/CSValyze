@@ -4,8 +4,14 @@
     padding: 50px 20px;
     background-color: #0f172a;
     color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* For positioning buttons properly */
   }
   
+  /* Other content styles */
   .headline {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -45,7 +51,85 @@
     color: #3b82f6;
   }
   
-  /* Back button styles */
+  /* Visualization button styles */
+  .visualization-button {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 8px 16px; /* Smaller button size */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    position: relative; /* Keeps it inside the content area */
+    z-index: 1;
+  }
+  
+  .visualization-button:hover {
+    background-color: #2563eb;
+  }
+  
+  .visualization-button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Visualization content styles */
+  .visualization-content {
+    margin-top: 40px;
+  }
+  
+  .chart-placeholder {
+    background-color: #1e293b;
+    width: 80%;
+    height: 300px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+  }
+  
+  /* Footer styles for positioning Gemini button at the bottom */
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #0f172a;
+  }
+  
+  .gemini-button {
+    background-color: #ec4899;
+    color: #ffffff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .gemini-button:hover {
+    background-color: #db2777;
+  }
+  
+  .gemini-button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Position the Back to Home button above the footer */
+  .action-buttons {
+    position: fixed;
+    bottom: 80px; /* Move it above the footer */
+    right: 20px;
+    z-index: 10; /* Ensures the buttons are above other content */
+  }
+  
   .back-button {
     background-color: #3b82f6;
     color: #ffffff;

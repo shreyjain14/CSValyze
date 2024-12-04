@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './HomePage.css';
+import './MainPage.css';
 
-const HomePage = () => {
+const MainPage = () => {
   const [view, setView] = useState('main');
   const [fileName, setFileName] = useState('');
   const navigate = useNavigate();
@@ -87,4 +87,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default MainPage;
