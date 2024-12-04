@@ -25,7 +25,16 @@ const HomePage = () => {
     backgroundPosition: 'center',
   }}
 >
-  <div className="content-overlay">
+  <div className="content-overlay"
+      style={{
+        background: 'rgba(255, 255, 255, 0.1)', // Dark semi-transparent background
+        padding: '30px',
+        borderRadius: '15px',
+        maxWidth: '600px', // Limit content width for better readability
+        textAlign: 'center', // Center text inside the box
+      }}
+  >
+    
     <h2
       className="feature-title"
       style={{
@@ -68,7 +77,16 @@ const HomePage = () => {
     backgroundPosition: 'center',
   }}
 >
-  <div className="content-overlay">
+<div className="content-overlay"
+      style={{
+        background: 'rgba(255, 255, 255, 0.1)', // Dark semi-transparent background
+        padding: '30px',
+        borderRadius: '15px',
+        maxWidth: '600px', // Limit content width for better readability
+        textAlign: 'center', // Center text inside the box
+      }}
+  >
+    
     <h2
       className="feature-title"
       style={{
