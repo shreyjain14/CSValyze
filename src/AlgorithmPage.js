@@ -1,10 +1,13 @@
 import React from 'react';
 import './AlgorithmPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const AlgorithmPage = () => {
-  const handleNextClick = () => {
-    alert('Proceeding to the next step!');
-  };
+    const navigate = useNavigate();
+
+    const handleNextClick = () => {
+      navigate('/result'); // Navigate to the ResultPage
+    };
 
   return (
     <div className="algorithm-page">

@@ -1,67 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Box, Typography, Button, CircularProgress } from '@mui/material';
+import React from 'react';
+import './ResultPage.css';
 
 const ResultPage = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { datasetName, algorithm } = location.state || {};
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000); // 3 seconds loading
-
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
-  }, []);
-
-  const goBack = () => {
-    navigate('/');
-  };
-
-  if (isLoading) {
-    return (
-      <Box
-        style={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <CircularProgress />
-        <Typography variant="h6" style={{ marginTop: '20px' }}>
-          Loading results, please wait...
-        </Typography>
-      </Box>
-    );
-  }
-
   return (
-    <Box
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <Typography variant="h4" style={{ marginBottom: '20px' }}>
-        Results for {algorithm}
-      </Typography>
-      <Typography variant="body1" style={{ marginBottom: '40px' }}>
-        Dataset Used: <strong>{datasetName || 'N/A'}</strong>
-      </Typography>
-      <Typography variant="body1" style={{ marginBottom: '40px' }}>
-        Processing completed! You can now analyze the output or run another algorithm.
-      </Typography>
-      <Button variant="contained" color="primary" onClick={goBack}>
-        Go Back
-      </Button>
-    </Box>
+    <div className="result-page">
+      <h1 className="headline">Analysis Results</h1>
+      <p className="subheadline">Here are the insights from your analysis:</p>
+      
+      <div className="results-container">
+        <div className="result-item">
+          <h2>Accuracy</h2>
+          <p>95%</p>
+        </div>
+        <div className="result-item">
+          <h2>Precision</h2>
+          <p>92%</p>
+        </div>
+        <div className="result-item">
+          <h2>Recall</h2>
+          <p>90%</p>
+        </div>
+        <div className="result-item">
+          <h2>Algorithm</h2>
+          <p>Algorithm 1</p>
+        </div>
+      </div>
+
+      <button className="back-button" onClick={() => window.location.href = '/'}>
+        Back to Home
+      </button>
+    </div>
   );
 };
 
