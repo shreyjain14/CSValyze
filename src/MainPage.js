@@ -1,165 +1,90 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Typography, Button, Select, MenuItem, FormControl, InputLabel, Grid, Paper, Box } from '@mui/material';
-import { useDropzone } from 'react-dropzone';
+import './HomePage.css';
 
-const MainPage = () => {
-  const [dataset, setDataset] = useState(null);
-  const [algorithm, setAlgorithm] = useState('');
+const HomePage = () => {
+  const [view, setView] = useState('main');
+  const [fileName, setFileName] = useState('');
   const navigate = useNavigate();
 
-  const handleDrop = (acceptedFiles) => {
-    if (acceptedFiles.length > 0) {
-      setDataset(acceptedFiles[0]);
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file.name);
+      setView('fileUploaded');
     }
   };
 
-  const { getRootProps, getInputProps } = useDropzone({ onDrop: handleDrop });
+  const handleUnderConstructionClick = () => {
+    setView('underConstruction');
+  };
 
-  const runAlgorithm = () => {
-    if (!dataset || !algorithm) {
-      alert('Please upload a dataset and select an algorithm!');
-      return;
-    }
-    // Navigate to the result page
-    navigate('/result', { state: { datasetName: dataset.name, algorithm } });
+  const handleNextClick = () => {
+    navigate('/algorithm'); // Navigate to the algorithm page
   };
 
   return (
-    <Box>
-      {/* Full-Width Header */}
-      <Box
-        style={{
-          backgroundColor: '#9694FF',
-          padding: '20px',
-          textAlign: 'center',
-          fontFamily: 'Arial, sans-serif',
-          color: '#FFFFFF',
-        }}
-      >
-        <Typography variant="h4" style={{ fontWeight: 'bold' }}>
-          ML Platform
-        </Typography>
-      </Box>
+    <div className="homepage">
+      <header className="homepage-header">
+        <nav className="navbar">
+          <ul className="navbar-menu">
+            <li>Product</li>
+            <li>Solutions</li>
+            <li>Resources</li>
+            <li>Open Source</li>
+            <li>Enterprise</li>
+            <li>Pricing</li>
+          </ul>
+        </nav>
+      </header>
 
-      {/* Moving Text Widget */}
-      <Box
-        style={{
-          backgroundColor: '#f0f0f0',
-          padding: '10px 0',
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
-        }}
-      >
-        <Typography
-          variant="body1"
-          component="div"
-          style={{
-            display: 'inline-block',
-            animation: 'marquee 20s linear infinite',
-          }}
-        >
-          Welcome to the ML Platform | Upload your dataset, select an algorithm, and get started with machine learning | Supports many supervised and unsupervised model building
-        </Typography>
-        <style>
-          {`
-            @keyframes marquee {
-              0% { transform: translateX(100%); }
-              100% { transform: translateX(-100%); }
-            }
-          `}
-        </style>
-      </Box>
+      <main className="homepage-main">
+        {view === 'main' && (
+          <>
+            <h1 className="headline">Build and evaluate ML algorithm automatically</h1>
+            <p className="subheadline">Upload Your Data</p>
 
-      {/* Main Content */}
-      <Container style={{ marginTop: '20px' }}>
-        <Grid container spacing={3}>
-          {/* Left Pane */}
-          <Grid item xs={12} sm={4}>
-            <Paper style={{ padding: '20px', height: '100%' }}>
-              <Typography variant="h6" style={{ marginBottom: '20px' }}>
-                Algorithm Selection
-              </Typography>
+            <div className="cta">
+              <label className="btn btn-primary">
+                Text / Numerical
+                <input
+                  type="file"
+                  accept=".csv, .xlsx"
+                  style={{ display: 'none' }}
+                  onChange={handleFileUpload}
+                />
+              </label>
+              <button className="btn btn-secondary" onClick={handleUnderConstructionClick}>
+                Images / Videos
+              </button>
+            </div>
+          </>
+        )}
 
-              {/* Algorithm Selection */}
-              <FormControl fullWidth style={{ marginBottom: '20px' }}>
-                <InputLabel id="algorithm-select-label">Select Algorithm</InputLabel>
-                <Select
-                  labelId="algorithm-select-label"
-                  value={algorithm}
-                  onChange={(e) => setAlgorithm(e.target.value)}
-                >
-                  <MenuItem value="Logistic Regression">Logistic Regression</MenuItem>
-                  <MenuItem value="Random Forest">Random Forest</MenuItem>
-                  <MenuItem value="K-Means Clustering">K-Means Clustering</MenuItem>
-                </Select>
-              </FormControl>
+        {view === 'fileUploaded' && (
+          <div className="alternate-content">
+            <h1 className="headline">File Uploaded Successfully</h1>
+            <p className="subheadline">File Name: {fileName}</p>
+            <p className="subheadline">Proceed with your analysis now.</p>
 
-              {/* Run Button */}
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={runAlgorithm}
-                fullWidth
-              >
-                Run Algorithm
-              </Button>
-            </Paper>
-          </Grid>
+            {/* Next button */}
+            <button className="next-button" onClick={handleNextClick}>
+              &rarr;
+            </button>
+          </div>
+        )}
 
-          {/* Right Pane */}
-          <Grid item xs={12} sm={8}>
-            <Paper style={{ padding: '20px' }}>
-              <Typography variant="h6" style={{ marginBottom: '20px' }}>
-                Dataset Upload
-              </Typography>
-
-              {/* Dataset Upload Section */}
-              <div
-                {...getRootProps()}
-                style={{
-                  border: '2px dashed #ccc',
-                  padding: '20px',
-                  textAlign: 'center',
-                  cursor: 'pointer',
-                }}
-              >
-                <input {...getInputProps()} />
-                <Typography>Drag & drop your dataset file here, or click to select</Typography>
-              </div>
-              {dataset && (
-                <Typography style={{ marginTop: '20px' }}>
-                  Uploaded File: <strong>{dataset.name}</strong>
-                </Typography>
-              )}
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
-        {/* Footer */}
-        <Box
-  style={{
-    backgroundColor: '#f5f5f5',
-    padding: '15px 25px',
-    textAlign: 'center',
-    position: 'fixed',
-    bottom: 0,
-    width: '100%',
-    boxShadow: '0 -1px 5px rgba(0,0,0,0.1)',
-  }}
->
-  <Typography variant="body2" style={{ color: '#555' , fontSize: '1.2rem'}}>
-    <a href="#help" style={{ marginRight: '15px', textDecoration: 'none', color: '#9694FF' }}>
-      Help
-    </a>
-    |
-    <a href="#contact" style={{ marginLeft: '15px', textDecoration: 'none', color: '#9694FF' }}>
-      Contact Us
-    </a>
-  </Typography>
-</Box>
-    </Box>
+        {view === 'underConstruction' && (
+          <div className="alternate-content">
+            <h1 className="headline">Under Construction</h1>
+            <p className="subheadline">
+              The Images / Videos functionality is currently under development. Stay tuned for updates!
+            </p>
+          </div>
+        )}
+      </main>
+    </div>
   );
 };
 
-export default MainPage;
+export default HomePage;
