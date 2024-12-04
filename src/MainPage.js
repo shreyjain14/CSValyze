@@ -76,7 +76,7 @@ const HomePage = () => {
 
         {view === 'underConstruction' && (
           <div className="alternate-content">
-            <h1 className="headline">Under Construction</h1>
+            <h1 className="headline">Coming Soon</h1>
             <p className="subheadline">
               The Images / Videos functionality is currently under development. Stay tuned for updates!
             </p>
