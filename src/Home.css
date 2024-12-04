@@ -62,7 +62,7 @@
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #063979;
+  background: linear-gradient(90deg, #062955, #1e3c72); /* Default gradient background */
   color: white;
   padding: 15px 30px;
   border-radius: 50px;
@@ -70,13 +70,15 @@
   text-decoration: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 10;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease; /* Add transition for smooth hover effect */
 }
 
 .floating-button:hover {
-  background-color: #2563eb;
+  background: linear-gradient(90deg, #4b6cb7, #182848); /* Gradient changes on hover */
+  transform: translateX(-50%) scale(1.05); /* Slightly enlarge on hover */
 }
 
 .floating-button:active {
-  transform: translateX(-50%) scale(0.95);
+  transform: translateX(-50%) scale(0.95); /* Slight shrink effect on click */
 }
+
