@@ -88,17 +88,20 @@ const MainPage = () => {
 
         {view === "fileUploaded" && (
           <div className="alternate-content">
-            <h1 className="headline">File Uploaded Successfully</h1>
-            <p className="uploaded-filename">
-              <strong>File Name:</strong> {fileName}
-            </p>
-            <p className="uploaded-message">Proceed with your analysis now.</p>
+            {/* Message box with animation */}
+            <div className="message-box">
+              <h1>File Uploaded Successfully</h1>
+              <p><strong>File Name:</strong> {fileName}</p>
+              <p>Proceed with your analysis now.</p>
+            </div>
 
+            {/* Next Button (unchanged) */}
             <button className="next-button" onClick={handleNextClick}>
               &rarr;
             </button>
           </div>
         )}
+
 
         {view === "underConstruction" && (
           <div className="alternate-content">
