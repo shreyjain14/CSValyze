@@ -1,39 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './MainPage.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./MainPage.css";
 
 const MainPage = () => {
-  const [view, setView] = useState('main');
-  const [fileName, setFileName] = useState('');
+  const [view, setView] = useState("main");
+  const [fileName, setFileName] = useState("");
+  const [uploadProgress, setUploadProgress] = useState(0);
   const navigate = useNavigate();
 
-  // This hook will update the background image when the component mounts
   useEffect(() => {
-    // Dynamically set background image (this can be changed to any image URL)
-    const backgroundImageUrl = './img/bg.jpeg'; // Put the path to the image here
-    document.querySelector('.homepage-main').style.backgroundImage = `url(${backgroundImageUrl})`;
+    const backgroundImageUrl = "./img/bg.jpeg";
+    document.querySelector(".homepage-main").style.backgroundImage = `url(${backgroundImageUrl})`;
   }, []);
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       setFileName(file.name);
-      setView('fileUploaded');
+      setView("fileUploading");
+
+      // Simulate the upload process
+      const interval = setInterval(() => {
+        setUploadProgress((prev) => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            setView("fileUploaded");
+            return 100;
+          }
+          return prev + 10;
+        });
+      }, 200); // Increase progress every 200ms
     }
   };
 
   const handleUnderConstructionClick = () => {
-    setView('underConstruction');
+    setView("underConstruction");
   };
 
   const handleNextClick = () => {
-    navigate('/algorithm'); // Navigate to the algorithm page
+    navigate("/algorithm");
   };
 
   return (
     <div>
       <main className="homepage-main">
-        {view === 'main' && (
+        {view === "main" && (
           <>
             <h1 className="headline">Build and evaluate ML algorithm automatically</h1>
             <p className="subheadline">Upload Your Data</p>
@@ -47,7 +58,7 @@ const MainPage = () => {
                 <input
                   type="file"
                   accept=".csv, .xlsx, .json"
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                   onChange={handleFileUpload}
                 />
               </label>
@@ -62,20 +73,34 @@ const MainPage = () => {
           </>
         )}
 
-        {view === 'fileUploaded' && (
+        {view === "fileUploading" && (
+          <div className="alternate-content">
+            <h1 className="headline">File Uploading...</h1>
+            {/* Active progress bar */}
+            <div className="progress-bar">
+              <div
+                className="progress"
+                style={{ width: `${uploadProgress}%` }}
+              ></div>
+            </div>
+          </div>
+        )}
+
+        {view === "fileUploaded" && (
           <div className="alternate-content">
             <h1 className="headline">File Uploaded Successfully</h1>
-            <p className="subheadline">File Name: {fileName}</p>
-            <p className="subheadline">Proceed with your analysis now.</p>
+            <p className="uploaded-filename">
+              <strong>File Name:</strong> {fileName}
+            </p>
+            <p className="uploaded-message">Proceed with your analysis now.</p>
 
-            {/* Next button */}
             <button className="next-button" onClick={handleNextClick}>
               &rarr;
             </button>
           </div>
         )}
 
-        {view === 'underConstruction' && (
+        {view === "underConstruction" && (
           <div className="alternate-content">
             <h1 className="headline">Coming Soon</h1>
             <p className="subheadline">
