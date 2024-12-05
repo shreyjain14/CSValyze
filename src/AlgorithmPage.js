@@ -11,29 +11,34 @@ const AlgorithmPage = () => {
 
   const supervisedAlgorithms = {
     "Regression Algorithms": [
-      "Linear Regression",
-      "Polynomial Regression",
-      "Ridge Regression",
-      "Lasso Regression",
+      { name: "Linear Regression", description: "A method for modeling the relationship between variables." },
+      { name: "Polynomial Regression", description: "A type of regression that models relationships as polynomial functions." },
+      { name: "Ridge Regression", description: "A regularized version of linear regression." },
+      { name: "Lasso Regression", description: "Another regularized form of linear regression using L1 penalty." },
     ],
     "Classification Algorithms": [
-      "Logistic Regression",
-      "Support Vector Machines (SVM)",
-      "Decision Tree",
-      "Random Forest",
-      "Gradient Boosting (XGBoost, LightGBM, CatBoost)",
-      "K-Nearest Neighbors (KNN)",
-      "Naive Bayes (Gaussian, Multinomial, Bernoulli)",
+      { name: "Logistic Regression", description: "Used for binary classification problems." },
+      { name: "Support Vector Machines (SVM)", description: "Classifies data by finding the best boundary." },
+      { name: "Decision Tree", description: "A tree-like structure used for classification and regression." },
+      { name: "Random Forest", description: "An ensemble method using multiple decision trees." },
+      { name: "Gradient Boosting", description: "An ensemble technique that builds models sequentially." },
+      { name: "K-Nearest Neighbors (KNN)", description: "Classifies based on the nearest neighbors in the dataset." },
+      { name: "Naive Bayes", description: "A probabilistic classifier based on Bayes' theorem." },
     ],
-    "Time Series Forecasting": ["ARIMA", "SARIMA", "ARCH", "GARCH"],
+    "Time Series Forecasting": [
+      { name: "ARIMA", description: "Auto-regressive integrated moving average for time series prediction." },
+      { name: "SARIMA", description: "ARIMA with seasonal components." },
+      { name: "ARCH", description: "Autoregressive Conditional Heteroskedasticity model for financial data." },
+      { name: "GARCH", description: "Generalized ARCH for volatility modeling in time series." },
+    ],
   };
 
   const unsupervisedAlgorithms = {
     "Clustering Algorithms": [
-      "K-Means Clustering",
-      "K-Medoids Clustering",
-      "Hierarchical Clustering (Agglomerative, Divisive, BIRCH)",
-      "Fuzzy C-Means",
+      { name: "K-Means Clustering", description: "A popular algorithm to partition data into clusters." },
+      { name: "K-Medoids Clustering", description: "A variation of K-Means that uses medoids instead of centroids." },
+      { name: "Hierarchical Clustering", description: "Builds a hierarchy of clusters, can be agglomerative or divisive." },
+      { name: "Fuzzy C-Means", description: "A clustering algorithm where each point can belong to multiple clusters." },
     ],
   };
 
@@ -56,13 +61,14 @@ const AlgorithmPage = () => {
         <ul>
           {items.map((algo) => (
             <li
-              key={algo}
-              onClick={() => handleAlgorithmSelect(algo)}
+              key={algo.name}
+              onClick={() => handleAlgorithmSelect(algo.name)}
               className={`algorithm-item ${
-                selectedAlgorithm === algo ? "selected" : ""
+                selectedAlgorithm === algo.name ? "selected" : ""
               }`}
+              title={algo.description} // Tooltip on hover
             >
-              {algo}
+              {algo.name}
             </li>
           ))}
         </ul>
