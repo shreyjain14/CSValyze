@@ -154,3 +154,32 @@
 .modal-close-btn:active {
   transform: scale(0.95);
 }
+
+
+/* Next Button */
+.next-button-container {
+  position: fixed;
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+}
+
+.next-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.next-button:hover {
+  background-color: #2563eb;
+}
+
+.next-button:active {
+  transform: scale(0.95);
+}

@@ -17,6 +17,10 @@ const ResultPage = () => {
     setShowChatGPTModal(false); // Close ChatGPT modal
   };
 
+  const handleNextClick = () => {
+    window.location.href = '/main'; // Redirect to the main page (change '/main' to the actual path of your main page)
+  };
+
   return (
     <div className="result-page">
       <h1 className="headline">Analysis Results</h1>
@@ -76,6 +80,13 @@ const ResultPage = () => {
           </button>
         </div>
       )}
+
+      {/* Next Button (to redirect to the main page) */}
+      <div className="next-button-container">
+        <button className="next-button" onClick={handleNextClick}>
+          &larr; {/* Left arrow symbol */}
+        </button>
+      </div>
     </div>
   );
 };
