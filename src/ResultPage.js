@@ -3,13 +3,18 @@ import './ResultPage.css';
 
 const ResultPage = () => {
   const [showVisualization, setShowVisualization] = useState(false);
+  const [showChatGPTModal, setShowChatGPTModal] = useState(false);
 
   const handleVisualizationClick = () => {
     setShowVisualization(!showVisualization);
   };
 
-  const handleGeminiClick = () => {
-    alert('Gemini button clicked!');
+  const handleChatGPTClick = () => {
+    setShowChatGPTModal(true); // Show ChatGPT modal
+  };
+
+  const handleCloseModal = () => {
+    setShowChatGPTModal(false); // Close ChatGPT modal
   };
 
   return (
@@ -36,35 +41,41 @@ const ResultPage = () => {
         </div>
       </div>
 
-      {/* Visualization Button */}
       <button className="visualization-button" onClick={handleVisualizationClick}>
         {showVisualization ? 'Hide Visualization' : 'Show Visualization'}
       </button>
 
-      {/* Visualization content */}
       {showVisualization && (
         <div className="visualization-content">
           <h2>Data Visualization (Placeholder)</h2>
-          {/* Replace the below div with your actual chart or graph */}
           <div className="chart-placeholder">
             <p>Chart will be rendered here...</p>
           </div>
         </div>
       )}
 
-      {/* Footer with Gemini button */}
-      <footer className="footer">
-        <button className="gemini-button" onClick={handleGeminiClick}>
-          Gemini
-        </button>
-      </footer>
+      {/* ChatGPT Logo Button */}
+      <img
+        src="./img/gem.png" // Update this path to the actual ChatGPT logo image file
+        alt="ChatGPT Logo"
+        className="chatgpt-logo-button"
+        onClick={handleChatGPTClick} // Open the modal on click
+      />
 
-      {/* Bottom-right positioned Back to Home button */}
-      <div className="action-buttons">
-        <button className="back-button" onClick={() => window.location.href = '/'}>
-          Back to Home
-        </button>
-      </div>
+      {/* Modal for ChatGPT Button */}
+      {showChatGPTModal && (
+        <div className="chatgpt-modal">
+          <h2>ChatGPT Results</h2>
+          <p>Here are the detailed results from the algorithm evaluation process:</p>
+          <p><strong>Accuracy:</strong> 95%</p>
+          <p><strong>Precision:</strong> 92%</p>
+          <p><strong>Recall:</strong> 90%</p>
+          <p><strong>Algorithm Used:</strong> Algorithm 1</p>
+          <button className="modal-close-btn" onClick={handleCloseModal}>
+            Close
+          </button>
+        </div>
+      )}
     </div>
   );
 };
