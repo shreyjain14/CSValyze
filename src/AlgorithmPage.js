@@ -51,7 +51,7 @@ const AlgorithmPage = () => {
       alert("Please select an algorithm!");
       return;
     }
-    navigate("/result", { state: { selectedAlgorithm } }); // Pass selected algorithm to the result page
+    navigate("/result", { state: { selectedAlgorithm } });
   };
 
   const renderAlgorithmList = (algorithms) => {
@@ -66,7 +66,7 @@ const AlgorithmPage = () => {
               className={`algorithm-item ${
                 selectedAlgorithm === algo.name ? "selected" : ""
               }`}
-              title={algo.description} // Tooltip on hover
+              title={algo.description}
             >
               {algo.name}
             </li>
@@ -81,7 +81,6 @@ const AlgorithmPage = () => {
       <h1 className="headline">Select an Algorithm</h1>
       <p className="subheadline">Choose the best-suited algorithm for your data.</p>
 
-      {/* Buttons to toggle supervised and unsupervised categories */}
       <div className="button-group">
         <button
           className={`toggle-button ${showSupervised ? "active" : ""}`}
@@ -103,23 +102,20 @@ const AlgorithmPage = () => {
         </button>
       </div>
 
-      {/* Render dropdown for supervised algorithms */}
       {showSupervised && (
         <div className="algorithm-list">
           {renderAlgorithmList(supervisedAlgorithms)}
         </div>
       )}
-
-      {/* Render dropdown for unsupervised algorithms */}
       {showUnsupervised && (
         <div className="algorithm-list">
           {renderAlgorithmList(unsupervisedAlgorithms)}
         </div>
       )}
 
-      {/* Next button */}
+      {/* Next Button (Simplified) */}
       <button className="next-button" onClick={handleNextClick}>
-        Next &rarr;
+        &rarr;
       </button>
     </div>
   );
