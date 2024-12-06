@@ -81,10 +81,13 @@ const ResultPage = () => {
         </div>
       )}
 
-      {/* Next Button (to redirect to the main page) */}
-      <div className="next-button-container">
-        <button className="next-button" onClick={handleNextClick}>
-          &larr; {/* Left arrow symbol */}
+      {/* Updated Swipe Button */}
+      <div className="swipe-button-container" onClick={handleNextClick}>
+        <button className="swipe-button">
+          <span>Resume</span>
+          <div className="arrow-container">
+            <div className="arrow"></div>
+          </div>
         </button>
       </div>
     </div>
