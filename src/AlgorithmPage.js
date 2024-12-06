@@ -113,10 +113,15 @@ const AlgorithmPage = () => {
         </div>
       )}
 
-      {/* Next Button (Simplified) */}
-      <button className="next-button" onClick={handleNextClick}>
-        &rarr;
-      </button>
+      {/* Updated Swipe Button */}
+      <div className="swipe-button-container" onClick={handleNextClick}>
+        <button className="swipe-button">
+          <span>Swipe Next</span>
+          <div className="arrow-container">
+            <div className="arrow"></div>
+          </div>
+        </button>
+      </div>
     </div>
   );
 };
