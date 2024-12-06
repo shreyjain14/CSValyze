@@ -53,28 +53,56 @@ body {
   margin-top: 20px; /* Space between headline and buttons */
 }
 
+/* Candy ghost button with mixed neon (blue and yellow) */
 .btn-secondary {
-  background-color: #eab308;
-  border-color: #eab308;
+  background: transparent;
+  border: 2px solid;
+  border-image-source: linear-gradient(90deg, #00d4ff, #fdd835); /* Blue to yellow gradient */
+  border-image-slice: 1; /* Ensures the gradient is applied to the border */
+  color: #ffffff; /* Initial text color (blue) */
   padding: 12px 30px;
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 35px;
-  color: black;
+  border-radius: 5px;
+  text-transform: uppercase;
   position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6), 0 0 15px rgba(253, 216, 53, 0.6); /* Blue and yellow neon glow */
 }
 
 .btn-secondary:hover {
-  background-color: #d97706;
+  background: linear-gradient(90deg, #0d5e6e, #fdd835); /* Gradient background on hover */
+  color: #0f172a; /* Dark text for contrast */
+  box-shadow: 0 0 20px rgba(0, 212, 255, 1), 0 0 20px rgba(253, 216, 53, 1); /* Intense neon glow */
 }
 
-* Swipe Button Container */
-.swipe-button-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
+.btn-secondary:active {
+  transform: scale(0.95); /* Slight scale effect on click */
 }
+
+/* Tooltip styles for buttons */
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 8px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  bottom: 100%; /* Position above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1; /* Make the tooltip visible when hovered */
+}
+
 
 /* Swipe Button Styles */
 .swipe-button {
