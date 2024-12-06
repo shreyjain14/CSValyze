@@ -6,6 +6,7 @@ const MainPage = () => {
   const [view, setView] = useState("main");
   const [fileName, setFileName] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [errorMessage, setErrorMessage] = useState(""); // Error message for invalid file type
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,20 +17,26 @@ const MainPage = () => {
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setFileName(file.name);
-      setView("fileUploading");
+      const fileType = file.name.split('.').pop().toLowerCase();
+      const allowedTypes = ['csv', 'json', 'xlsx'];
 
-      // Simulate the upload process
-      const interval = setInterval(() => {
-        setUploadProgress((prev) => {
-          if (prev >= 100) {
-            clearInterval(interval);
-            setView("fileUploaded");
-            return 100;
-          }
-          return prev + 10;
-        });
-      }, 200); // Increase progress every 200ms
+      if (allowedTypes.includes(fileType)) {
+        setFileName(file.name);
+        setView("fileUploading");
+
+        const interval = setInterval(() => {
+          setUploadProgress((prev) => {
+            if (prev >= 100) {
+              clearInterval(interval);
+              setView("fileUploaded");
+              return 100;
+            }
+            return prev + 10;
+          });
+        }, 200);
+      } else {
+        setErrorMessage("Please upload a valid file type: .csv, .json, or .xlsx");
+      }
     }
   };
 
@@ -70,38 +77,37 @@ const MainPage = () => {
                 Images / Videos
               </button>
             </div>
+
+            {errorMessage && (
+              <div className="error-message">
+                <p>{errorMessage}</p>
+              </div>
+            )}
           </>
         )}
 
         {view === "fileUploading" && (
           <div className="alternate-content">
             <h1 className="headline">File Uploading...</h1>
-            {/* Active progress bar */}
             <div className="progress-bar">
-              <div
-                className="progress"
-                style={{ width: `${uploadProgress}%` }}
-              ></div>
+              <div className="progress" style={{ width: `${uploadProgress}%` }}></div>
             </div>
           </div>
         )}
 
         {view === "fileUploaded" && (
           <div className="alternate-content">
-            {/* Message box with animation */}
             <div className="message-box">
               <h1>File Uploaded Successfully</h1>
               <p><strong>File Name:</strong> {fileName}</p>
               <p>Proceed with your analysis now.</p>
             </div>
 
-            {/* Next Button (unchanged) */}
             <button className="next-button" onClick={handleNextClick}>
               &rarr;
             </button>
           </div>
         )}
-
 
         {view === "underConstruction" && (
           <div className="alternate-content">
