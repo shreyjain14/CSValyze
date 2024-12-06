@@ -48,6 +48,10 @@ const MainPage = () => {
     navigate("/algorithm");
   };
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <main className="homepage-main">
@@ -124,6 +128,17 @@ const MainPage = () => {
           </div>
         )}
       </main>
+
+            {/* Home Icon */}
+            <div className="home-icon" onClick={handleHomeClick}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 3l9 8h-3v10h-12v-10h-3z" />
+        </svg>
+      </div>
     </div>
   );
 };

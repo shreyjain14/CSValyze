@@ -241,6 +241,38 @@ body {
   font-weight: bold;
 }
 
-/* Other styles remain the same */
+/* Home icon styles */
+.home-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #1f2937; /* Dark background for the icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.home-icon:hover {
+  transform: scale(1.1); /* Slight scale-up on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.home-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #00d4ff; /* Neon blue fill for the icon */
+  transition: fill 0.3s;
+}
+
+.home-icon:hover svg {
+  fill: #fdd835; /* Change fill color to yellow on hover */
+}
+
 
 

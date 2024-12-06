@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ResultPage.css';
 
 const ResultPage = () => {
   const [showVisualization, setShowVisualization] = useState(false);
   const [showChatGPTModal, setShowChatGPTModal] = useState(false);
+
+  // Initialize navigate using the useNavigate hook
+  const navigate = useNavigate();
 
   const handleVisualizationClick = () => {
     setShowVisualization(!showVisualization);
@@ -21,11 +25,15 @@ const ResultPage = () => {
     window.location.href = '/main'; // Redirect to the main page (change '/main' to the actual path of your main page)
   };
 
+  const handleHomeClick = () => {
+    navigate("/"); // Navigate to the homepage
+  };
+
   return (
     <div className="result-page">
       <h1 className="headline">Analysis Results</h1>
       <p className="subheadline">Here are the insights from your analysis:</p>
-      
+
       <div className="results-container">
         <div className="result-item">
           <h2>Accuracy</h2>
@@ -89,6 +97,17 @@ const ResultPage = () => {
             <div className="arrow"></div>
           </div>
         </button>
+      </div>
+
+      {/* Home Icon */}
+      <div className="home-icon" onClick={handleHomeClick}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 3l9 8h-3v10h-12v-10h-3z" />
+        </svg>
       </div>
     </div>
   );

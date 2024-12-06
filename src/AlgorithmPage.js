@@ -54,6 +54,10 @@ const AlgorithmPage = () => {
     navigate("/result", { state: { selectedAlgorithm } });
   };
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   const renderAlgorithmList = (algorithms) => {
     return Object.entries(algorithms).map(([category, items]) => (
       <div key={category} className="algorithm-category">
@@ -122,6 +126,17 @@ const AlgorithmPage = () => {
           </div>
         </button>
       </div>
+{/* Home Icon */}
+<div className="home-icon" onClick={handleHomeClick}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 3l9 8h-3v10h-12v-10h-3z" />
+        </svg>
+      </div>
+
     </div>
   );
 };
