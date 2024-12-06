@@ -122,7 +122,7 @@ body {
 }
 
 .swipe-button:hover {
-  background-color: #374151;
+  background-color: #000000;
   transform: translateY(-3px);
 }
 
