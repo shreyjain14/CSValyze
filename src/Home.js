@@ -24,7 +24,7 @@ const HomePage = () => {
           opacity: 1,
         }
         }>
-          <source src="./img/logo.mp4" type="video/mp4" />
+          <source src="./img/logo1.mp4" type="video/mp4" />
         </video>
       </div>
 

@@ -10,8 +10,9 @@ const AboutUs = () => {
     { name: 'Dr. Tejil J John', role: 'Faculty Coordinator', imgSrc: './img/TS.jpeg', linkedIn: 'https://www.linkedin.com/in/dr-tegil-j-john-1b7a34150/' },
 
     // Core Team
-    { name: 'Satyam Kumar', role: 'Core Team', imgSrc: './img/SK.jpg', linkedIn: '#' },
-    { name: 'Priyansha Upadayay', role: 'Core Team', imgSrc: './img/PU.jpg', linkedIn: '#' },
+    { name: 'Himanshu Gulecha', role: 'Core Team', imgSrc: './img/HG.png', linkedIn: 'https://www.linkedin.com/in/himanshugulechha?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' },
+    { name: 'Priyansha Upadayay', role: 'Core Team', imgSrc: './img/PU.png', linkedIn: 'https://www.linkedin.com/in/priyansha1306/' },
+    { name: 'Satyam Kumar', role: 'Core Team', imgSrc: './img/SK.png', linkedIn: 'https://www.linkedin.com/in/satyamkumar09/' },
 
     // Frontend Team
     { name: 'Steffi Angel C', role: 'Frontend Developer', imgSrc: './img/steffi.jpg', linkedIn: '#' },
