@@ -10,7 +10,7 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const backgroundImageUrl = "./img/bg.jpeg";
+    const backgroundImageUrl = "./img/bg1.jpeg";
     document.querySelector(".homepage-main").style.backgroundImage = `url(${backgroundImageUrl})`;
   }, []);
 
