@@ -82,3 +82,24 @@
   transform: translateX(-50%) scale(0.95); /* Slight shrink effect on click */
 }
 
+
+/* About Us Icon Button */
+.top-right-link {
+  position: fixed;
+  top: 15px; /* Adjust distance from the top */
+  right: 20px; /* Adjust distance from the right */
+  z-index: 10; /* Ensure it stays above other elements */
+}
+
+.about-us-icon {
+  width: 70px; /* Size of the icon */
+  height: 0px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.about-us-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  opacity: 0.8; /* Slightly fade on hover */
+}
+

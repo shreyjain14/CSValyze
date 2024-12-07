@@ -1,10 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import './AboutUs.css';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUs />} />
+      </Routes>
+    </Router>
+  );
 
 const HomePage = () => {
   return (
     <div className="homepage">
+      {/* About Us Button Icon */}
+      <div className="top-right-link">
+        <Link to="/about" className="about-us-link">
+          <img 
+            src="./img/abt.png" 
+            alt="About Us Icon" 
+            className="about-us-icon" 
+          />
+        </Link>
+      </div>
+
       {/* Feature 1: Video Background */}
       <div className="feature-section" id="feature-1">
         <video className="background-video" autoPlay loop muted
