@@ -4,6 +4,7 @@ import MainPage from './MainPage';
 import ResultPage from './ResultPage';
 import AlgorithmPage from './AlgorithmPage';
 import HomePage from './Home';
+import AboutUs from './AboutUs';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/main" element={<MainPage />} />
         <Route path="/algorithm" element={<AlgorithmPage />} />
         <Route path="/result" element={<ResultPage />} />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
     </Router>
   );

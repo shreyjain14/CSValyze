@@ -46,8 +46,8 @@ const AboutUs = () => {
         <div className="overview-content">
           <div className="image-container">
             <img
-              src="./img/data-protection.jpg"
-              alt="Data Protection"
+              src="./img/PA.jpg"
+              alt="PA"
               className="overview-image"
             />
           </div>
