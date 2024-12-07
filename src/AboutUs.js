@@ -25,7 +25,7 @@ const AboutUs = () => {
     { name: 'Kripa Mary Jose', role: 'Backend Developer', imgSrc: './img/9.png', linkedIn: 'https://www.linkedin.com/in/kripa-mary-jose-b21555166/' },
 
     // Preprocessing Team
-    { name: 'Bagyalakshmi S Shinde', role: 'Preprocessing', imgSrc: './img/10.png', linkedIn: 'https://www.linkedin.com/in/bagyalakshmi-s-shinde-048559246/' },
+    { name: 'Bagyalakshmi S S', role: 'Preprocessing', imgSrc: './img/10.png', linkedIn: 'https://www.linkedin.com/in/bagyalakshmi-s-shinde-048559246/' },
     { name: 'C Steffi Angel', role: 'Preprocessing', imgSrc: './img/11A.png', linkedIn: 'https://www.linkedin.com/in/c-steffi-angel-8882a4244/' },
     { name: 'Elizabeth George', role: 'Preprocessing', imgSrc: './img/11.png', linkedIn: 'https://www.linkedin.com/in/elizabeth-george-62123322b/' },
     { name: 'Manav Gupta', role: 'Preprocessing', imgSrc: './img/12.png', linkedIn: 'https://www.linkedin.com/in/manav-gupta-83093a23b/' },
@@ -35,7 +35,7 @@ const AboutUs = () => {
 
     // Model Implementation Team
     { name: 'Christina J Thattil', role: 'Model Implementation', imgSrc: './img/14.png', linkedIn: 'https://www.linkedin.com/in/christina-thattil-2b32a8284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
-    { name: 'Deyon Rose Babu Thomas', role: 'Model Implementation', imgSrc: './img/15.png', linkedIn: 'http://www.linkedin.com/in/deyonrose' },
+    { name: 'Deyon Rose Babu T', role: 'Model Implementation', imgSrc: './img/15.png', linkedIn: 'https://www.linkedin.com/in/deyon-rose-babu-thomas/' },
     { name: 'Dhyan R', role: 'Model Implementation', imgSrc: './img/16.png', linkedIn: 'https://www.linkedin.com/in/dhyan-r/' },
     { name: 'Epista R', role: 'Model Implementation', imgSrc: './img/17.png', linkedIn: 'https://www.linkedin.com/in/epsita-rajesh/' },
     { name: 'Ismail Basheer', role: 'Model Implementation', imgSrc: './img/18.png', linkedIn: 'https://www.linkedin.com/in/ismail-basheer/' },
@@ -44,16 +44,16 @@ const AboutUs = () => {
     { name: 'Manu Martin', role: 'Model Implementation', imgSrc: './img/22.png', linkedIn: 'https://www.linkedin.com/in/manu-martin-7556971ba/' },
     { name: 'Marcus Daniel P', role: 'Model Implementation', imgSrc: './img/23.png', linkedIn: 'https://www.linkedin.com/in/marcus-daniel-p-b35b00284/' },
     { name: 'Melvin Infant A', role: 'Model Implementation', imgSrc: './img/24.png', linkedIn: 'https://www.linkedin.com/in/melvininfant/' },
-    { name: 'Muzzammil Razin P A', role: 'Model Implementation', imgSrc: './img/25.png', linkedIn: 'https://www.linkedin.com/in/muzzammil-razin/' },
+    { name: 'Muzzammil Razin PA', role: 'Model Implementation', imgSrc: './img/25.png', linkedIn: 'https://www.linkedin.com/in/muzzammil-razin/' },
     { name: 'Ponwinsiya P', role: 'Model Implementation', imgSrc: './img/27.png', linkedIn: 'https://www.linkedin.com/in/ponwinsiya-ponpandi-585a611ba/' },
     { name: 'Pradakshina P', role: 'Model Implementation', imgSrc: './img/28.png', linkedIn: 'https://www.linkedin.com/in/pradakshina-premkumar-609043248/' },
     { name: 'Rahul Krishna K R', role: 'Model Implementation', imgSrc: './img/29.png', linkedIn: 'https://www.linkedin.com/in/rahul-krishna-kr/' },
-    { name: 'Ranjan Shruti Indresh', role: 'Model Implementation', imgSrc: './img/30.png', linkedIn: 'https://www.linkedin.com/in/shruti-ranjan20/' },
-    { name: 'Ridhin Issac Abraham', role: 'Model Implementation', imgSrc: './img/31.png', linkedIn: 'http://www.linkedin.com/in/ridhinissacabraham' },
+    { name: 'Ranjan Shruti I', role: 'Model Implementation', imgSrc: './img/30.png', linkedIn: 'https://www.linkedin.com/in/shruti-ranjan20/' },
+    { name: 'Ridhin Issac A', role: 'Model Implementation', imgSrc: './img/31.png', linkedIn: 'http://www.linkedin.com/in/ridhinissacabraham' },
     { name: 'Ritushree Dey', role: 'Model Implementation', imgSrc: './img/32.png', linkedIn: 'https://www.linkedin.com/in/ritushree-dey/' },
     { name: 'Samson Sabu', role: 'Model Implementation', imgSrc: './img/33.png', linkedIn: 'https://www.linkedin.com/in/samson-sabu-8aab0a22b/' },
     { name: 'Sanjay S', role: 'Model Implementation', imgSrc: './img/34.png', linkedIn: 'http://www.linkedin.com/in/SanjaySathiyasankar' },
-    { name: 'Swapnali Singh', role: 'Model Implementation', imgSrc: './img/35.png', linkedIn: 'http://linkedin.com/in/swapnalisingh' },
+    { name: 'Swapnali Singh', role: 'Model Implementation', imgSrc: './img/35.png', linkedIn: 'https://www.linkedin.com/in/swapnali-singh-3969a9247/' },
     { name: 'Swetha R', role: 'Model Implementation', imgSrc: './img/36.png', linkedIn: 'https://www.linkedin.com/in/swethar68/' },
     { name: 'Victor Jose I J', role: 'Model Implementation', imgSrc: './img/37.png', linkedIn: 'https://www.linkedin.com/in/victor-jose-i-j-210903284' },
     { name: 'Reeve R Mathew', role: 'Model Implementation', imgSrc: './img/38.png', linkedIn: 'https://www.linkedin.com/in/reeve-r-mathew-744b11284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
