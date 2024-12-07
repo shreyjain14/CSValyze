@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import './AboutUs';
 
 const HomePage = () => {
   return (
@@ -9,7 +10,7 @@ const HomePage = () => {
       <div className="top-right-link">
         <Link to="/about" className="about-us-link">
           <img 
-            src="./img/about-icon.png" 
+            src="./img/abt.png" 
             alt="About Us Icon" 
             className="about-us-icon" 
           />
