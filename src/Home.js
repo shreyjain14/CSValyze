@@ -1,17 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import './AboutUs.css';
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutUs />} />
-      </Routes>
-    </Router>
-  );
 
 const HomePage = () => {
   return (
@@ -20,7 +9,7 @@ const HomePage = () => {
       <div className="top-right-link">
         <Link to="/about" className="about-us-link">
           <img 
-            src="./img/abt.png" 
+            src="./img/about-icon.png" 
             alt="About Us Icon" 
             className="about-us-icon" 
           />
