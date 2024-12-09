@@ -68,7 +68,7 @@ const ResultPage = () => {
 
       {/* ChatGPT Logo Button */}
       <img
-        src="./img/gem.png" // Update this path to the actual ChatGPT logo image file
+        src="./img/gemini.png" // Update this path to the actual ChatGPT logo image file
         alt="ChatGPT Logo"
         className="chatgpt-logo-button"
         onClick={handleChatGPTClick} // Open the modal on click

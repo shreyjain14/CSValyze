@@ -89,24 +89,22 @@ const AboutUs = () => {
   </div>
   <div className="text-content">
     <p>
-      We are students of the M.Sc. in Artificial Intelligence and
-      Machine Learning program at Christ University, Bangalore. As part
-      of our final year project, we have developed <strong>ZeROCodeML</strong>, a
-      smart email classifier designed to enhance email security by
-      effectively detecting and filtering spam, phishing, and other
-      unwanted emails.
+    We are students of the M.Sc. in Artificial Intelligence and 
+    Machine Learning program at Christ University, Bangalore. 
+    We have developed <strong>ZeROCodeML</strong>, a powerful platform that allows 
+    users to upload their datasets and gain meaningful insights 
+    through advanced data visualization.
     </p>
     <p>
-      Our project is driven by a shared passion for leveraging AI and
-      machine learning to solve real-world problems. With the rise of
-      cyber threats and the increasing volume of unwanted emails, we
-      recognized the need for a solution that could help users maintain
-      a safer and more organized inbox.
+    Our project brings together the collaborative efforts of 42 passionate students, 
+    united by a vision to make data analysis more accessible and impactful. 
+    ZeROCodeML is designed to empower users with seamless tools for exploring and 
+    understanding their data, enabling smarter decisions and uncovering valuable patterns.
     </p>
     <p>
-      Thank you for taking the time to learn about our project. We look
-      forward to contributing further to the field of Artificial
-      Intelligence and Machine Learning.
+    We are proud to contribute to the growing field of Artificial Intelligence and 
+    Machine Learning, addressing real-world challenges with innovative solutions. 
+    Thank you for your interest in ZeROCodeML, and we look forward to advancing data-driven innovation!
     </p>
   </div>
 </section>
