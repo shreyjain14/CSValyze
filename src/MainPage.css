@@ -10,6 +10,7 @@ body {
   padding: 0px; /* Adjust padding for spacing from the top */
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: flex-start; /* Align content to the top */
   min-height: 100vh;
@@ -21,7 +22,7 @@ body {
 .progress-bar {
   width: 80%;
   height: 10px;
-  background-color: #555;
+  background-color: #c3c2c2;
   border-radius: 5px;
   overflow: hidden;
   margin: 20px 0;
@@ -29,7 +30,7 @@ body {
 
 .progress {
   height: 100%;
-  background-color: #22c55e;
+  background-color: #08036b;
   transition: width 0.2s ease;
 }
 
@@ -57,9 +58,9 @@ body {
 .btn-secondary {
   background: transparent;
   border: 2px solid;
-  border-image-source: linear-gradient(90deg, #00d4ff, #fdd835); /* Blue to yellow gradient */
+  border-image-source: linear-gradient(90deg, #08036b, #fdd835); /* Blue to yellow gradient */
   border-image-slice: 1; /* Ensures the gradient is applied to the border */
-  color: #ffffff; /* Initial text color (blue) */
+  color: #000000; /* Initial text color (blue) */
   padding: 12px 30px;
   font-size: 1.5rem;
   font-weight: bold;
@@ -68,11 +69,11 @@ body {
   text-transform: uppercase;
   position: relative;
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6), 0 0 15px rgba(253, 216, 53, 0.6); /* Blue and yellow neon glow */
+  box-shadow: 0 0 15px #08036b, 0 0 15px rgba(253, 216, 53, 1); /* Blue and yellow neon glow */
 }
 
 .btn-secondary:hover {
-  background: linear-gradient(90deg, #0d5e6e, #fdd835); /* Gradient background on hover */
+  background: linear-gradient(90deg, #63b4d9, #fdd835); /* Gradient background on hover */
   color: #0f172a; /* Dark text for contrast */
   box-shadow: 0 0 20px rgba(0, 212, 255, 1), 0 0 20px rgba(253, 216, 53, 1); /* Intense neon glow */
 }
@@ -113,7 +114,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   color: #ffffff;
-  background-color: #1f2937; /* Dark background */
+  background-color: #08036b; /* Dark background */
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -190,7 +191,7 @@ body {
 .message-box h1 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #75a6e3; /* Success green */
+  color: #5eecff; /* Success green */
 }
 
 .message-box p {
@@ -200,7 +201,7 @@ body {
 }
 
 .message-box strong {
-  color: #facc15; /* Highlighted yellow */
+  color: #da9191; /* Highlighted yellow */
 }
 
 /* Tooltip styles for the button */
