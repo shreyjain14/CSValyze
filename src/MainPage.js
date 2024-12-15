@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'; // Add this import
 import "./MainPage.css";
 
 const MainPage = () => {
   const [view, setView] = useState("main");
   const [fileName, setFileName] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [errorMessage, setErrorMessage] = useState(""); // Error message for invalid file type
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,35 +22,40 @@ const MainPage = () => {
       const allowedTypes = ['csv', 'json', 'xlsx'];
 
       if (allowedTypes.includes(fileType)) {
-        setFileName(file.name);
-        setView("fileUploading");
+        const formData = new FormData();
+        formData.append('file', file);
 
-        const interval = setInterval(() => {
-          setUploadProgress((prev) => {
-            if (prev >= 100) {
-              clearInterval(interval);
-              setView("fileUploaded");
-              return 100;
-            }
-            return prev + 10;
+        // Axios for file upload
+        axios.post('http://localhost:5000/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          onUploadProgress: (progressEvent) => {
+            const percentCompleted = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
+            setUploadProgress(percentCompleted);
+          }
+        })
+        .then(response => {
+          setFileName(file.name);
+          setView("fileUploaded");
+          navigate("/result", { 
+            state: { 
+              edaResults: response.data,
+              fileName: file.name 
+            } 
           });
-        }, 200);
+        })
+        .catch(error => {
+          console.error('File upload error:', error);
+          setErrorMessage("Error uploading file. Please try again.");
+          setView("main");
+        });
       } else {
         setErrorMessage("Please upload a valid file type: .csv, .json, or .xlsx");
       }
     }
-  };
-
-  const handleUnderConstructionClick = () => {
-    setView("underConstruction");
-  };
-
-  const handleNextClick = () => {
-    navigate("/algorithm");
-  };
-
-  const handleHomeClick = () => {
-    navigate("/");
   };
 
   return (
@@ -67,6 +73,7 @@ const MainPage = () => {
               >
                 Text / Numerical
                 <input
+                  id="fileInput"
                   type="file"
                   accept=".csv, .xlsx, .json"
                   style={{ display: "none" }}
@@ -76,7 +83,7 @@ const MainPage = () => {
               <button
                 className="btn btn-secondary"
                 data-tooltip="Upload supported image or video formats"
-                onClick={handleUnderConstructionClick}
+                onClick={() => setView("underConstruction")}
               >
                 Images / Videos
               </button>
@@ -94,8 +101,12 @@ const MainPage = () => {
           <div className="alternate-content">
             <h1 className="headline">File Uploading...</h1>
             <div className="progress-bar">
-              <div className="progress" style={{ width: `${uploadProgress}%` }}></div>
+              <div 
+                className="progress" 
+                style={{ width: `${uploadProgress}%` }}
+              ></div>
             </div>
+            <p>{uploadProgress}%</p>
           </div>
         )}
 
@@ -106,16 +117,6 @@ const MainPage = () => {
               <p><strong>File Name:</strong> {fileName}</p>
               <p>Proceed with your analysis now.</p>
             </div>
-
-      {/* Updated Swipe Button */}
-      <div className="swipe-button-container" onClick={handleNextClick}>
-        <button className="swipe-button">
-          <span>Swipe Next</span>
-          <div className="arrow-container">
-            <div className="arrow"></div>
-          </div>
-        </button>
-      </div>
           </div>
         )}
 
@@ -128,17 +129,6 @@ const MainPage = () => {
           </div>
         )}
       </main>
-
-            {/* Home Icon */}
-            <div className="home-icon" onClick={handleHomeClick}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-        >
-          <path d="M12 3l9 8h-3v10h-12v-10h-3z" />
-        </svg>
-      </div>
     </div>
   );
 };

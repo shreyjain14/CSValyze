@@ -51,7 +51,9 @@ const AlgorithmPage = () => {
       alert("Please select an algorithm!");
       return;
     }
-    navigate("/result", { state: { selectedAlgorithm } });
+    
+    // Navigate to Supervised ML Page with selected algorithm
+    navigate("/supervised", { state: { selectedAlgorithm } });
   };
 
   const handleHomeClick = () => {

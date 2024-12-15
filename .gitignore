@@ -2,6 +2,7 @@
 /node_modules
 /.pnp
 .pnp.js
+package.json
 
 # testing
 /coverage
@@ -39,3 +40,5 @@ Desktop.ini
 *.temp
 eslintcache
 pm2*.log
+
+venv/
